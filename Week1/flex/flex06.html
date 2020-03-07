@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex06</title>
+    <style>
+        .flex { 
+            background: #f7f7f7;
+            border-radius: 3px;
+            padding: 20px;
+            counter-reset: items;
+        }
+
+        .item { 
+            border-radius: 3px;
+            background: #a2cbfa;
+            border: 1px solid #4390e1;
+            box-sizing: border-box;
+            min-height: 100px;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .item::before{
+            counter-increment: items;
+            content: counter(items);
+        }
+
+        /* flex06 */
+        .flex { 
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-between;
+        }
+        .item { 
+            /* width: 32%; */ /* flex: 0 32%; 로도 가능하다. */  /* flex : flex-grow / flex-shrink / flex-basis */ 
+            /* flex-basis: 32%도 같은 결과 */
+            flex-basis: 32%;
+            height: 100px;
+            margin-bottom: 2%;}
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <script>
+        // 01. 변수 : 하나의 데이터를 저장하는 곳, 데이터가 변경
+        var x = 100;
+        var y = 200;
+        var z = 'var';
+        document.write('01. 변수<br/>');
+        document.write(x,'<br/>');
+        document.write(y,'<br/>');
+        document.write(z,'<br/><br/>');
+
+        // let const는 es6부터 사용가능
+        // 02. 변수  
+        let x2 = 100;
+        let y2 = 200;
+        let z2 = 'let';
+        document.write('02. 변수<br/>');
+        document.write(x2,'<br/>');
+        document.write(y2,'<br/>');
+        document.write(z2,'<br/><br/>');
+
+        //03. 상수 : 하나의 데이터를 저장하는 곳, 데이터 변경 불가
+        const x3 = 100;
+        const y3 = 200;
+        const z3 = 'const';
+        document.write('03. 상수<br/>');
+        document.write(x3,'<br/>');
+        document.write(y3,'<br/>');
+        document.write(z3,'<br/><br/>');
+
+        //04. 변수 변경
+        x = 300;
+        y = 400;
+        z = 'jQuery';
+        document.write('04. 변수변경<br/>');
+        document.write(x,'<br/>');
+        document.write(y,'<br/>');
+        document.write(z,'<br/><br/>');
+
+        //05. 상수 변경
+        // x3 = 100;
+        // y3 = 200;
+        // z3 = 'jQuery';
+        // document.write('05. 상수변경<br/>');
+        // document.write(x3,'<br/>');
+        // document.write(y3,'<br/>');
+        // document.write(z3,'<br/><br/>');
+
+        //06. 배열 : 두개 이상의 데이터를 저장하는 곳
+        //배열을 선언하고 저장하기
+        const arr1 = new Array();
+        arr1[0] = 100;
+        arr1[1] = 200;
+        document.write('06. 배열<br/>');
+        document.write(arr1[0],'<br/>');
+        document.write(arr1[1],'<br/><br/>');
+
+        //07. 배열 - 배열을 선언하고 저장히기
+        const arr2 = [];
+        arr2[0] = 100;
+        arr2[1] = 200;
+        document.write('07. 배열<br/>');
+        document.write(arr2[0],'<br/>');
+        document.write(arr2[1],'<br/><br/>');
+        
+        //08. 배열 - 배열 선언과 동시에 저장하기
+        const arr3 = new Array(100,200);
+        document.write('08. 배열<br/>');
+        document.write(arr3[0],'<br/>');
+        document.write(arr3[1],'<br/><br/>');
+
+        //09. 배열 - 배열을 선언하지 않고 동시에 저장하기
+        const arr4 = [100,200];
+        document.write('09. 배열<br/>');
+        document.write(arr4[0],'<br/>');
+        document.write(arr4[1],'<br/><br/>');
+
+        //10. 배열 크기
+        const arr5 = [1,2,3];
+        document.write('10. 배열 크기<br/>');
+        document.write(arr5.length,'<br/><br/>');
+
+        //11. 배열 요소 가져오기
+        const arr6 = [100,200,300];
+        document.write('11. 배열 요소 가져오기<br/>');
+        for( let i = 0; i < arr6.length; i++){
+            if(i === arr6.length-1){
+                document.write(arr6[i],'<br/><br/>');
+            }else{
+                document.write(arr6[i],'<br/>');
+            }            
+        }
+
+        //12. 배열 요소 가져오기
+        const arr7 = [100,200,300];
+        const map7 = arr7.map( x => x);
+        document.write('12. 배열 요소 가져오기<br/>');
+        document.write(map7, '<br/><br/>');
+
+        //13. 배열 요소 가져오기
+        const arr8 = [100,200,300];
+        const map8 = arr7.map( x => x * 2);
+        document.write('13. 배열 요소 가져오기<br/>');
+        document.write(map8, '<br/><br/>');
+
+        //14. 배열 요소 가져오기
+        const arr9 = [100,200,300];
+        document.write('14. 배열 요소 가져오기<br/>');
+        const map9 = arr9.map( (element, index, array) => {
+            document.write(element,'<br/>');
+            document.write(index,'<br/>');
+            document.write(array,'<br/><br/>');
+        });
+
+        //15. 객체 : 메서드(Method)와 속성(Attribute)으로 이루어진 기본적인 기능
+        const obj1 = new Object();
+        obj1[0] = 100;
+        obj1[1] = 200;
+        document.write('15. 객체<br/>');
+        document.write(obj1[0],'<br/>');
+        document.write(obj1[1],'<br/><br/>');
+
+        //16. 객체 선언
+        const obj2 = new Object();
+        obj2.a = 100;
+        obj2.b = 200;
+        document.write('16. 객체<br/>');
+        document.write(obj2.a,'<br/>');
+        document.write(obj2.b,'<br/><br/>');
+
+        //17. 객체 선언
+        const obj3 = {};
+        obj3.a = 100;
+        obj3.b = 200;
+        document.write('17. 객체<br/>');
+        document.write(obj3.a,'<br/>');
+        document.write(obj3.b,'<br/><br/>');
+
+        //18. 객체 선언
+        const obj4 = {
+            a: 100,
+            b: 200,
+        };
+        document.write('18. 객체<br/>');
+        document.write(obj4.a,'<br/>');
+        document.write(obj4.b,'<br/><br/>');
+
+        //19. 객체와 배열
+        const obj5 = [
+            {
+                a: 100,
+                b: 200    
+            },
+            {
+                c: 300,
+                d: 400
+            }
+        ];
+        document.write('19. 객체와 배열<br/>');
+        document.write(obj5[0].a, '<br/>');
+        document.write(obj5[0].b, '<br/>');
+        document.write(obj5[1].c, '<br/>');
+        document.write(obj5[1].d, '<br/><br/>');
+
+        //20. 객체와 배열
+        const obj6 = new Object();
+        obj6.a = 100;
+        obj6.b = [200, 300];
+        obj6.c = 'javascript';
+        document.write('20. 객체와 배열<br/>');
+        document.write(obj6.a, '<br/>');
+        document.write(obj6.b[0], '<br/>');
+        document.write(obj6.b[1], '<br/>');
+        document.write(obj6.c, '<br/><br/>');
+
+        //21. 객체와 배열 - 객체 생성하기
+        const obj7 = {
+            a: [100,200],
+            b: 'javascript',
+            c: function(){
+                document.write('객체의 메서드가 실행되었습니다.<br/>');
+            },
+            d: function(){
+                document.write(this.b + '가 실행되었습니다.<br/><br/>');
+            }
+        }
+
+        document.write('21. 객체와 배열 - 객체 생성하기<br/>');
+        document.write(obj7.a, '<br/>');
+        document.write(obj7.a[0], '<br/>');
+        document.write(obj7.a[1], '<br/>');
+        document.write(obj7.b, '<br/>');
+        obj7.c();
+        obj7.d();
+    </script>    
+</body>
+</html>
+
+

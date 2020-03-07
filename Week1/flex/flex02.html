@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex02</title>
+    <style>
+        .flex { 
+            background: #f7f7f7;
+            border-radius: 3px;
+            padding: 20px;
+            counter-reset: items;
+        }
+
+        .item { 
+            border-radius: 3px;
+            background: #a2cbfa;
+            border: 1px solid #4390e1;
+            box-sizing: border-box;
+            min-height: 100px;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .item::before{
+            counter-increment: items;
+            content: counter(items);
+        }
+
+        /* flex02 */
+        .flex { display: flex;}
+        .item { flex-grow: 1;}
+        .item + .item { margin-left: 2%;}
+        .item:nth-child(4) { flex-grow: 3;}
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="item "></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>

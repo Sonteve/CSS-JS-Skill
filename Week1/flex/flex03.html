@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex03</title>
+    <style>
+        .flex { 
+            background: #f7f7f7;
+            border-radius: 3px;
+            padding: 20px;
+            counter-reset: items;
+        }
+
+        .item { 
+            border-radius: 3px;
+            background: #a2cbfa;
+            border: 1px solid #4390e1;
+            box-sizing: border-box;
+            min-height: 100px;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .item::before{
+            counter-increment: items;
+            content: counter(items);
+        }
+
+        /* flex03 */
+        .flex { 
+            display: flex; 
+            /* flex-direction: column;
+            flex-direction: column-reverse;
+            flex-direction: row; */
+            flex-direction: row-reverse;
+            }
+        .item { width: 100px; margin-left: 2%;}
+
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="item "></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>
