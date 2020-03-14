@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* option */
+        .animation {
+            background-color: #f7f7f7;
+            border-radius: 3px;
+            padding: 20px;
+            counter-reset: items;
+        }
+        h2 {color: #999; font-size: 14px; margin-top: 50px;}
+        .box {
+            position: relative;
+            width: 60px; height: 60px; line-height: 60px;
+            text-align: center; color: #fff; font-size: 12px;
+            margin: 10px;
+            border-radius: 50%;
+            background-color: #A2CBFA;
+            border: 1px solid #4390E1;
+            box-shadow: 0 2px 2px rgba(0,90,250,0.05), 0 4px 4px rgba(0,90,250,0.05), 0 8px 8px rgba(0,90,250,0.05), 0 16px 16px rgba(0,90,250,0.05);
+        }
+        .box::before {
+            counter-increment: items;
+            content: counter(items);
+        }
+        .btn {margin: 13px 3px 3px 3px;}
+        .btn > span, .btn > a {
+            color: #3d90b7;
+            background: #e7f6fd;
+            border: 1px dashed #3d90b7;
+            display: inline-block;
+            border-radius: 3px;
+            padding: 6px 12px;
+            text-decoration: none;
+            margin: 3px;
+            font-size: 14px;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .btn > span:hover, 
+        .btn > a:hover {text-decoration: underline;}
+        
+        /* animation */
+        .box1:nth-child(1).show {animation: move 2s 1 linear}
+        .box1:nth-child(2).show {animation: move 2s 1 ease}
+        .box1:nth-child(3).show {animation: move 2s 1 ease-in}
+        .box1:nth-child(4).show {animation: move 2s 1 ease-out}
+        .box1:nth-child(5).show {animation: move 2s 1 ease-in-out}
+        .box1:nth-child(6).show {animation: move 2s 1 step-start}
+        .box1:nth-child(7).show {animation: move 2s 1 step-end}
+        .box1:nth-child(8).show {animation: move 2s 1 steps(4, start)}
+        .box1:nth-child(9).show {animation: move 2s 1 steps(4, end)}
+        .box1:nth-child(10).show {animation: move 2s 1 cubic-bezier(0,.6,1,1.72)}
+        .box1:nth-child(11).show {animation: move 2s 1 cubic-bezier(1,-0.04,1,-0.94)}
+        
+        @keyframes move {
+            0% {left: 0%;}
+            50% {left: calc(100% - 70px);}
+            100% {left: 0%;}
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS Animation</h2> 
+    <div class="animation ani1">
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+    </div>
+    
+    <div class="btn btn1">
+        <a href="#" class="reset1">리셋</a>
+        <a href="#" class="start1">클릭</a>
+    </div>
+    
+    
+    <h2>JS Animation</h2> 
+    <div class="animation ani2">
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+    </div>
+    
+    <div class="btn btn2">
+        <span>linear</span>
+        <span>swing</span>
+        <span>easeInQuad</span>
+        <span>easeOutQuad</span>
+        <span>easeInOutQuad</span>
+        <span>easeInCubic</span>
+        <span>easeOutCubic</span>
+        <span>easeInOutCubic</span>
+        <span>easeInQuart</span>
+        <span>easeOutQuart</span>
+        <span>easeInOutQuart</span>
+        <span>easeInQuint</span>
+        <span>easeOutQuint</span>
+        <span>easeInOutQuint</span>
+        <span>easeInSine</span>
+        <span>easeOutSine</span>
+        <span>easeInOutSine</span>
+        <span>easeInExpo</span>
+        <span>easeOutExpo</span>
+        <span>easeInOutExpo</span>
+        <span>easeInCirc</span>
+        <span>easeOutCirc</span>
+        <span>easeInOutCirc</span>
+        <span>easeInElastic</span>
+        <span>easeOutElastic</span>
+        <span>easeInOutElastic</span>
+        <span>easeInBack</span>
+        <span>easeOutBack</span>
+        <span>easeInOutBack</span>
+        <span>easeInBounce</span>
+        <span>easeOutBounce</span>
+        <span>easeInOutBounce</span>
+    </div>
+    
+    <h2>GSAP Animation</h2> 
+    <div class="animation ani3">
+        <div class="box box3"></div>
+        <div class="box box3"></div>
+        <div class="box box3"></div>
+    </div>
+    
+    <div class="btn btn3">
+        <span>power1.out</span>
+        <span>power2.out</span>
+        <span>power3.out</span>
+        <span>power4.out</span>
+        <span>back.out(1.7)</span>
+        <span>elastic.out(1, 0.3)</span>
+        <span>slow(0.7, 0.7, false)</span>
+        <span>steps(12)</span>
+        <span>circ.out</span>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+    
+    <script>
+        $("a").click(function(e){
+            e.preventDefault();
+        });
+
+        $('.start1').click(function(){
+            $('.box1').addClass('show');
+        });
+
+        //jQuery
+        const leftWidth = $('.animation').width() - 70 + 'px';
+        $('.btn2 > span').click(function(){
+            let easing = $(this).text();
+            // alert(easing);
+            $('.box2').animate({left : leftWidth},1000, easing)
+                      .animate({left:0},1000,easing);
+        });
+
+        // javascript
+        const left = document.querySelector('.animation').offsetWidth - 110 + 'px';
+        /* $('.btn3 > span').click(function(){
+            let easing = $(this).text();
+            gsap.to('.box3', 1, { repeat: 1, yoyo: true, left: left, ease: easing})
+        }); */
+        document.querySelectorAll('.btn3 span').forEach(function(e){
+            e.addEventListener('click', function(){
+                let easing = this.innerText;
+                gsap.to('.box3', 1, { repeat: 1, yoyo: true, left: left, ease: easing});
+            });
+        });
+
+    </script>
+</body>
+</html>

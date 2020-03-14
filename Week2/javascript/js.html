@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //22. 함수 - 선언적 함수
+        function func1(){
+            document.write('22. 함수 - 선언적 함수<br>');
+            document.write('함수가 실행 되었습니다.<br><br>');
+        }
+        func1();
+
+        //23. 함수 - 익명 함수
+        const func2 = function(){
+            document.write('23. 함수 - 익명 함수<br>');
+            document.write('함수가 실행 되었습니다.<br><br>');
+        }
+        func2();
+
+        //24. 함수 - 매개변수가 함수
+        function func3(name){
+            document.write('24. 함수 - 익명 함수<br>');
+            document.write(name,'<br><br>');
+        }
+        func3('함수가 실행 되었습니다.');
+
+        //25. 함수 - 리턴값이 있는 함수
+        function func4(){
+            document.write('25. 함수 - 리턴값이 있는 함수<br>');
+            const str = '함수가 실행 되었습니다.<br><br>';
+            return str;
+        }
+        const value4 = func4();
+        document.write(value4);
+
+        //26. 함수 - 재귀함수 : 함수 정의문 내에 함수를 다시 호출하여 실행하는 함수
+        function func5(){
+            document.write('26. 함수 - 재귀함수<br>');
+            document.write('함수가 실행 되었습니다.<br><br>');
+            //func5();   무한으로 호출
+        }
+        func5();
+
+        //27. 함수 - 재귀함수
+        function func6(num){
+            if(num === 0){
+                document.write('27. 함수 - 재귀함수<br>');
+                document.write('함수가 실행 되었습니다.<br><br>');
+            }else{
+                document.write('27. 함수 - 재귀함수<br>');
+                document.write('함수가 실행 되었습니다.<br><br>');
+                func6(num-1);
+            }
+        }
+        func6(2);
+
+        //28. 함수 - 콜백함수 : 함수를 변수에 저장하고 변수를 함수의 인자로 사용하여 매개변수에 전달하는 함수
+        function callback(num){
+            for( let i = 1; i <= 5; i++){
+                num(i);
+            }
+        }
+
+        const func7 = function(){
+            document.write('28. 함수 - 콜백함수<br>');
+            document.write('함수가 실행 되었습니다.<br><br>');
+        }
+        callback(func7);
+        
+        //29. 함수 - 내부 함수 : 함수 안에 함수를 선언하는 방법
+        function func8out(){
+            function func8in(){
+                const str = '함수가 실행 되었습니다.';
+                document.write('29. 함수 - 내부 함수<br>');
+                document.write(str, '<br><br>');
+            }
+            func8in();
+        }
+        func8out();
+
+        //30. 함수 - 내부 함수 : 함수 안에 함수를 선언하는 방법
+        function func9out(){
+            function func9in(){
+                const str = '함수가 실행 되었습니다.';
+                document.write('30. 함수 - 내부 함수<br>');
+                document.write(str, '<br><br>');
+            }
+            func9in();
+        }
+        func9out();
+
+        //31. 함수 - 템플릿 리터럴
+        function func10(name){
+            document.write('31. 함수 - 템플릿 리터럴<br>');
+            // document.write('1. ',name,'가 실행 되었습니다.');
+            // document.write('1. ' + name + '가 실행 되었습니다.');
+            document.write(`2. ${name}가 실행되었습니다.<br><br>`); /* '가 아니라 tab위의 `를 써야됨.*/
+        }
+        func10('함수');
+
+        //32. 함수 - 템플릿 리터럴2
+        const func11 = [
+            { name: '32', result: '함수' },
+            { name: '함수', result: '실행' },
+        ];
+        const list = 
+            `${func11[0].name}. ${func11[0].result} - 템플릿 리터럴<br>
+            ${func11[1].name}가 ${func11[1].result} 되었습니다.<br><br>`;
+        document.write(list);
+
+        //33. 화살표 함수 - 선언적 함수
+        func12 = () => {
+            document.write('33. 화살표 함수 - 선언적 함수<br>');
+            document.write('함수가 실행 되었습니다.<br><br>');
+        }
+        func12();
+
+        //34. 화살표 함수 - 익명 함수
+        const func13 = () => {
+            document.write('34. 화살표 함수 - 익명 함수<br>');
+            document.write('함수가 실행 되었습니다.<br><br>');
+        }
+        func13();
+
+        //35. 화살표 함수 - return문
+        const func14 = () => {
+            const str = '함수가 실행 되었습니다.<br><br>';
+            return str;
+        }
+        const value14 = func14();
+        document.write('35. 화살표 함수 - return문<br>');
+        document.write(value14);
+
+        //36. 화살표 함수 - 매개변수
+        // const func15 = (str) => { return str;} 
+        const func15 = str => str; /* 매개변수 하나일경우 소괄호 생략가능 return값 한문장일 때 중괄호 생략 가능 */
+        const value15 = func15('함수가 실행 되었습니다.<br><br>');
+        document.write('36. 화살표 함수 - 매개변수<br>');
+        document.write(value15);
+
+
+
+
+
+        
+
+        
+    </script>
+    
+</body>
+</html>

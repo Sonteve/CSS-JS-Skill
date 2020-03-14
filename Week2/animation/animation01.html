@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMATION</title>
+    <style>
+        /* option */
+        .animation {
+            background-color: #f7f7f7;
+            border-radius: 3px;
+            padding: 20px;
+            counter-reset: items;
+        }
+        h2 {color: #999; font-size: 14px; margin-top: 50px;}
+        .box {
+            position: relative;
+            width: 60px; height: 60px; line-height: 60px;
+            text-align: center; color: #fff; font-size: 12px;
+            margin: 10px;
+            border-radius: 50%;
+            background-color: #A2CBFA;
+            border: 1px solid #4390E1;
+            box-shadow: 0 2px 2px rgba(0,90,250,0.05), 0 4px 4px rgba(0,90,250,0.05), 0 8px 8px rgba(0,90,250,0.05), 0 16px 16px rgba(0,90,250,0.05);
+        }
+        .box::before {
+            counter-increment: items;
+            content: counter(items);
+        }
+        .btn {margin: 13px 3px 3px 3px;}
+        .btn > span, .btn > a {
+            color: #3d90b7;
+            background: #e7f6fd;
+            border: 1px dashed #3d90b7;
+            display: inline-block;
+            border-radius: 3px;
+            padding: 6px 12px;
+            text-decoration: none;
+            margin: 3px;
+            font-size: 14px;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .btn > span:hover, 
+        .btn > a:hover {text-decoration: underline;}
+
+        /* animation */
+        .box1.show { animation: move 2s;}
+
+        @keyframes move{
+            0% { left: 0%;}
+            50% { left: calc(100% - 70px);}  /* calc안의 숫자사이 띄워야 인식함 */
+            100% { left: 0%;}
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS Animation</h2> 
+    <div class="animation ani1">
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+    </div>
+    
+    <div class="btn btn1">
+        <a href="#" class="reset1">리셋</a>
+        <a href="#" class="start1">클릭</a>
+    </div>
+
+
+    <h2>JS Animation</h2> 
+    <div class="animation ani2">
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+    </div>
+    
+    <div class="btn btn2">
+        <a href="#" class="reset2">리셋</a>
+        <a href="#" class="start2">클릭</a>
+    </div>
+
+    <h2>GSAP Animation</h2> 
+    <div class="animation ani3">
+        <div class="box box3"></div>
+        <div class="box box3"></div>
+        <div class="box box3"></div>
+    </div>
+    
+    <div class="btn btn3">
+        <a href="#" class="reset3">리셋</a>
+        <a href="#" class="start3">클릭</a>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+    <script>
+        $('.btn a').click(function(e){ e.preventDefault();});
+
+        $('.start1').click(function(){
+            $('.box1').addClass('show');
+        });  
+        $('.reset1').click(function(){
+            $('.box1').removeClass('show');
+        });   
+
+        // js
+        const leftWidth = $('.animation').width() - 70 + 'px';
+        // alert(leftWidth);
+        $('.start2').click(function(){            
+            $('.box2').animate({ left: leftWidth },1000)
+                      .animate({left: 0},1000);
+        });
+
+        //javascript
+        const btn3 = document.querySelector('.start3');
+        btn3.addEventListener('click', moveStart);
+        function moveStart(){
+            /* 선택자 , 애니메이션시간, 속성 */
+            /* 속성: repeat, yoyo */
+            TweenMax.to('.box3', 1, { repeat:1, yoyo: true, left: leftWidth});
+        }
+    </script>
+</body>
+</html>
