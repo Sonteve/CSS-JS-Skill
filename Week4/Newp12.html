@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax02</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,900&display=swap" rel="stylesheet">
+    <style>
+        *, *::after, *::before {box-sizing: border-box;}
+        * {margin: 0; padding: 0;}
+        :root {font-size: 16px;}
+        body {
+            --color-h1 : #dc6e25;
+            --color-title : #fff;
+            --color-link : #000;
+            --color-bg : #111;
+            --image-widthMax: 500px;
+            --aspect-ratio: 32/17;
+            color: var(--color-link);
+            background-color: var(--color-bg);
+            font-family: 'Lato', sans-serif;
+        }
+        #wrap h1 {
+            font-size: 8vw;
+            padding: 5vw;
+            color: var(--color-h1);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        #wrap h1 em {
+            display: block; 
+            padding-left: 20vw;
+            font-weight: 100;
+        }
+        .content-item { 
+            --imgwidth: calc(var(--imgwidthmax) * var(--aspect-ratio));
+            width: var(--imgwidth);
+            position: relative;
+            will-change: transform;
+        }
+        .content-item:nth-child(even){
+            margin-left: auto;
+        }
+        .content-item-num {
+            position: absolute; top: 30%; right: 10vw; transform: translateY(-50%);
+            font-size: 25vw; opacity: 0.03; line-height: 1;
+            font-weight: 100; 
+            color: #fff;
+        }
+        .content-item-title {
+            text-align: right; font-weight: 300; text-transform: capitalize;
+            color: #999; padding-right: 30px; padding-top: 10vh;
+        }
+        .content-item-imgWrap {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            --imgwidth: 50%;
+            overflow: hidden;
+            margin: 0 10vw 0 10vw;
+            width: var(--imgwidth); 
+            padding-top: calc(var(--imgwidth) / (var(--aspect-ratio)));
+            will-change: transform;
+        }
+        .content-item-img {
+            --overflow: 40px;
+            height: calc(100% + (2 * var(--overflow)));
+            position: absolute;
+            top: calc( -1 * var(--overflow));
+            width: 100%;
+            background-size: cover; 
+            background-position: 50% 0;
+            will-change: transform;
+        }
+        .content-item-desc { 
+            margin: 50vh 10vw 0 30vw;
+            font-size: 5vw; line-height: 1.2;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #fff;
+            text-align: right;
+            word-break: keep-all;
+            position: relative; z-index: 20;
+        }
+        #section1 .content-item-img {background-image: url('./image/so01.jpg');}
+        #section2 .content-item-img {background-image: url('./image/so02.jpg');}
+        #section3 .content-item-img {background-image: url('./image/so03.jpg');}
+        #section4 .content-item-img {background-image: url('./image/so04.jpg');}
+        #section5 .content-item-img {background-image: url('./image/so05.jpg');}
+        #section6 .content-item-img {background-image: url('./image/so06.jpg');}
+        #section7 .content-item-img {background-image: url('./image/so07.jpg');}
+        #section8 .content-item-img {background-image: url('./image/so08.jpg');}
+        #section9 .content-item-img {background-image: url('./image/so09.jpg');}
+        
+        /* scroll */
+        .scroll { 
+            position: fixed; left: 10px; top: 10px; 
+            width: 40px; height: 40px; 
+            background: rgba(255,255,255,0.4); 
+            text-align: center; line-height: 40px; color: #fff;
+        }
+        
+        body { height: 10000px;}
+
+        .mt { 
+            position: fixed; left: 50%; top: 50%; 
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll">0</div>
+    <div id="wrap">
+        <div class="contents">
+            <h1 class="mt" data-0="left:50%" data-1000="left:-50%" data-3000="left: 250%" data-3200="left: 50%" data-4000="left:50%; transform: translate(-50%,-50%) scale(2)">Parallax <em>Scrolling</em></h1>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="js/skrollr.min.js"></script> <!-- 가로 세로 스크롤 플러그인 -->
+    <script>
+        $(window).scroll(() => {
+            let wScroll = $(window).scrollTop();
+            $('.scroll').text(wScroll);
+        });
+
+        //skrollr
+        let s = skrollr.init({
+            edgeStrategy: 'set',
+            easing: 'linear'
+        });
+    </script>
+</body>
+</html>
